@@ -1,0 +1,28 @@
+{
+  "id": "triage-agent",
+  "version": "1.0.0",
+  "name": "Incident Triage Agent",
+  "description": "Analyzes new incidents and determines root causes using LLM",
+  "permissions": {
+    "read": [
+      "logs",
+      "metrics",
+      "rooms"
+    ],
+    "write": [
+      "rooms.post"
+    ],
+    "execute": [
+      "llm.analyze",
+      "incident.update"
+    ]
+  },
+  "subscriptions": [
+    "incident.created"
+  ],
+  "configuration": {
+    "llmModel": "gpt-4",
+    "confidenceThreshold": 0.75,
+    "maxAnalysisTime": 300
+  }
+}
